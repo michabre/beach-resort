@@ -1,0 +1,33 @@
+---
+// Hero
+---
+<section class="hero is-medium is-link" >
+  <div class="hero-body has-text-centered">
+    <h2 class="title is-size-1">
+      Medium hero
+    </h2>
+  </div>
+</section>
+<style>
+  .hero {
+    height: 100vh;
+    background: #fff url('./img/Tropical-Beach.jpg') no-repeat bottom right;
+    background-size: cover;
+    position: relative;
+  }
+  .hero:before {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+    width: 100%;
+    height: 100%;
+  }
+  .hero-body {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    z-index: 29;
+  }
+</style>

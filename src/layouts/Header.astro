@@ -1,13 +1,19 @@
 ---
 // Header
 
+import * as data from '../data/navigation.md';
+
 import Button from "../components/Button.jsx";
+import NavBarItem from "../components/NavBarItem.jsx"
+
+const logo = data.frontmatter.logo
+const headerLinks = data.frontmatter.links
 
 ---
 <nav class="navbar is-transparent is-fixed-top">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+    <a class="navbar-item" href="/">
+      <img src={logo} alt="" width="86" height="60">
     </a>
     <div class="navbar-burger" data-target="navbarExampleTransparentExample">
       <span></span>
@@ -18,58 +24,35 @@ import Button from "../components/Button.jsx";
 
   <div id="navbarExampleTransparentExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="https://bulma.io/">
-        Home
-      </a>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-          Docs
-        </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-            Overview
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-            Modifiers
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-            Columns
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-            Layout
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-            Form
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-            Elements
-          </a>
-          <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-            Components
-          </a>
-        </div>
-      </div>
+      
     </div>
 
     <div class="navbar-end">
+      {headerLinks.map((item:any) => <NavBarItem title={item.title} url={item.url} />)}
+
       <div class="navbar-item">
         <div class="field is-grouped">
           <p class="control">
-            <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="https://bulma.io" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=https://bulma.io&amp;via=jgthms">
-              <span class="icon">
-                <i class="fab fa-twitter"></i>
-              </span>
-              <span>
-                Tweet
-              </span>
-            </a>
+            <Button text="Call" type="is-link is-outlined" client:idle />
           </p>
+        </div>
+      </div>
+      <div class="navbar-item">
+        <div class="field is-grouped">
           <p class="control">
-            <Button client:idle />
+            <Button text="Book Now" type="is-link" client:idle />
           </p>
         </div>
       </div>
     </div>
   </div>
 </nav>
+<style>
+  .navbar {
+    /* background: transparent; */
+    margin: 1rem;
+  }
+  .navbar-item img {
+    max-height: none;
+}
+</style>

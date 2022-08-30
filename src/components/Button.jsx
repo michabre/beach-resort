@@ -2,10 +2,11 @@ function handleOnClick() {
   console.log('Hello, Astro!');
 }
 
-const Button = () => {
+const Button = ({text, type}) => {
+  let buttonClass = `button ${type}`
   return (
-    <button className="button is-primary" onClick={handleOnClick}>
-      Download
+    <button className={buttonClass} onClick={handleOnClick}>
+      {text}
     </button>
   )
 }

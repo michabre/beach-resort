@@ -1,19 +1,19 @@
 ---
+// Import some markdown. Dynamic import() is also supported!
+import * as data from '../data/homepage.md';
 import Layout from '../layouts/Layout.astro';
-import Hero from '../layouts/Hero.astro';
+import Hero from '../components/Hero.astro';
+import Carousel from '../components/Carousel.astro';
+
+
+
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title={data.frontmatter.title}>
 	<main>
 		<Hero />
-		<!-- 
-			Sections:
-			  Options: Rooms, Huts
-				Pricing: all pricing options
-				Carousel: images of the resort
-				Book Now: form to book / number to call
-		 -->
-		<section id="accommodations" >
+
+		<section id="accommodations" class="p-5">
       <div class="container">
         <div class="columns">
           <div class="column">
@@ -26,8 +26,11 @@ import Hero from '../layouts/Hero.astro';
       </div>
 		</section>
 
+		<!-- Features -->
+	  <Carousel />
+
     <!-- PRICING -->
-		<section id="pricing">
+		<section id="pricing" class="p-5">
       <div class="container">
         <div class="columns">
           <div class="column">
@@ -38,7 +41,7 @@ import Hero from '../layouts/Hero.astro';
 		</section>
 
     <!-- BOOK NOW -->
-		<section id="book-now">
+		<section id="book-now" class="p-5">
       <div class="container">
         <div class="columns">
           <div class="column">

@@ -1,15 +1,15 @@
 // import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
 
-export default () => {
+const SwiperCarousel = () => {
   return (
     <>
     <Swiper
@@ -19,8 +19,8 @@ export default () => {
       navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log('slide change')}
+      // onSwiper={(swiper) => console.log(swiper)}
     >
       <SwiperSlide>Slide 1</SwiperSlide>
       <SwiperSlide>Slide 2</SwiperSlide>
@@ -28,5 +28,7 @@ export default () => {
       <SwiperSlide>Slide 4</SwiperSlide>
     </Swiper>
     </>
-  );
-};
+  )
+}
+
+export default SwiperCarousel
