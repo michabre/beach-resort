@@ -21,3 +21,6 @@ pnpm-debug.log*
 
 # ide files
 .vscode
+
+# data files
+src/data/*.md

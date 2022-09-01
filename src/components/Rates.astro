@@ -1,0 +1,33 @@
+---
+// Rates
+
+import * as data from '../data/rates.md';
+
+const picnic_area = data.frontmatter.picnic_area
+const tents = data.frontmatter.tents
+const rooms = data.frontmatter.rooms
+const hours = data.frontmatter.hours
+const content = data.compiledContent()
+
+---
+<section id="rates" class="p-5">
+  <div class="container">
+    <div class="card">
+      <header class="card-header">
+        <h3 class="card-header-title">
+          Picnic Area
+        </h3>
+      </header>
+      <div class="content">
+        {picnic_area.map((item:any) => <p>{item.type} | {item.description}</p>)}
+      </div>
+    </div>
+    <div class="columns">
+      <div class="columns">
+        <div set:html={content}></div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+</style>

@@ -4,6 +4,7 @@ import * as data from '../data/homepage.md';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Carousel from '../components/Carousel.astro';
+import Rates from '../components/Rates.astro';
 
 
 
@@ -29,16 +30,8 @@ import Carousel from '../components/Carousel.astro';
 		<!-- Features -->
 	  <Carousel />
 
-    <!-- PRICING -->
-		<section id="pricing" class="p-5">
-      <div class="container">
-        <div class="columns">
-          <div class="column">
-            Prices
-          </div>
-        </div>
-      </div>
-		</section>
+    <!-- RATES -->
+		<Rates />
 
     <!-- BOOK NOW -->
 		<section id="book-now" class="p-5">

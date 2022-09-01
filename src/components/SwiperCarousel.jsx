@@ -9,7 +9,9 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 
-const SwiperCarousel = () => {
+const SwiperCarousel = ({ slides }) => {
+  const slideItems = slides.frontmatter.features
+
   return (
     <>
     <Swiper
@@ -18,14 +20,11 @@ const SwiperCarousel = () => {
       slidesPerView={1}
       navigation
       pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
+      // scrollbar={{ draggable: true }}
       // onSlideChange={() => console.log('slide change')}
       // onSwiper={(swiper) => console.log(swiper)}
     >
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
+      {slideItems.map((item) => <SwiperSlide key={item.title}>{item.title}</SwiperSlide>)}
     </Swiper>
     </>
   )
