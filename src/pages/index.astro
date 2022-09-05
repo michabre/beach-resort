@@ -1,6 +1,8 @@
 ---
 // Import some markdown. Dynamic import() is also supported!
 import * as data from '../data/homepage.md';
+import * as rooms from '../data/rooms.md';
+import * as huts from '../data/picnic_huts.md';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Carousel from '../components/Carousel.astro';
@@ -18,10 +20,14 @@ import Rates from '../components/Rates.astro';
       <div class="container">
         <div class="columns">
           <div class="column">
-            Rooms
+            <h2 class="is-heading">{rooms.frontmatter.title}</h2>
+						<div set:html={rooms.compiledContent()}></div>
+						<p>{rooms.frontmatter.prices}</p>
           </div>
           <div class="column">
-            Picnic Huts
+            <h2 class="is-heading">{huts.frontmatter.title}</h2>
+						<div set:html={huts.compiledContent()}></div>
+						<p>{huts.frontmatter.prices}</p>
           </div>
         </div>
       </div>
@@ -38,7 +44,7 @@ import Rates from '../components/Rates.astro';
       <div class="container">
         <div class="columns">
           <div class="column">
-            Book Now
+            <button class="button is-primary">Book Now</button>
           </div>
         </div>
       </div>
