@@ -3,12 +3,13 @@
 import * as data from '../data/homepage.md';
 import * as rooms from '../data/rooms.md';
 import * as huts from '../data/picnic_huts.md';
+
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Carousel from '../components/Carousel.astro';
 import Rates from '../components/Rates.astro';
 
-
+const env_example = import.meta.env.VITE_ENV_EXAMPLE
 
 ---
 
@@ -44,6 +45,7 @@ import Rates from '../components/Rates.astro';
       <div class="container">
         <div class="columns">
           <div class="column">
+						<p>{env_example}</p>
             <button class="button is-primary">Book Now</button>
           </div>
         </div>

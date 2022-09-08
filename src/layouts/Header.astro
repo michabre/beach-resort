@@ -9,6 +9,9 @@ import NavBarItem from "../components/NavBarItem.jsx"
 const logo = data.frontmatter.logo
 const headerLinks = data.frontmatter.links
 
+function handleOnClick() {
+  console.log('Hello, Astro!');
+}
 ---
 <nav class="navbar is-transparent is-fixed-top">
   <div class="navbar-brand">
@@ -33,14 +36,14 @@ const headerLinks = data.frontmatter.links
       <div class="navbar-item">
         <div class="field is-grouped">
           <p class="control">
-            <Button text="Call" type="is-link is-outlined" client:idle />
+            <Button text="Call" type="is-link is-outlined" action={handleOnClick} client:idle />
           </p>
         </div>
       </div>
       <div class="navbar-item">
         <div class="field is-grouped">
           <p class="control">
-            <Button text="Book Now" type="is-link" client:idle />
+            <Button text="Book Now" type="is-link" action={handleOnClick} client:idle />
           </p>
         </div>
       </div>
