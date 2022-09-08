@@ -1,7 +1,7 @@
 ---
 // Rates
 
-import * as data from '../data/rates.md';
+import * as data from '../data/rates.md'
 
 const picnic_area = data.frontmatter.picnic_area
 const tents = data.frontmatter.tents
@@ -12,21 +12,46 @@ const content = data.compiledContent()
 ---
 <section id="rates" class="p-5">
   <div class="container">
-    <div class="card">
-      <header class="card-header">
-        <h3 class="card-header-title">
-          Picnic Area
-        </h3>
-      </header>
-      <div class="content">
-        {picnic_area.map((item:any) => <p>{item.type} | {item.description}</p>)}
+    <div class="columns">
+      <div class="column">
+        <h2 class="is-size-2">Rates</h2>
       </div>
     </div>
+
     <div class="columns">
-      <div class="columns">
+      <div class="column is-half">
+        <div class="columns">
+          <div class="column">
+            <h2 class="is-size-4">Picnic Area</h2>
+          </div>
+          <div class="column">
+            {picnic_area.map((item:any) => <p>{item.type} | {item.description}</p>)}
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <h2 class="is-size-4">Rooms</h2>
+          </div>
+          <div class="column">
+            {rooms.map((item:any) => <p>{item.type} | {item.description}</p>)}
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <h2 class="is-size-4">Tents</h2>
+          </div>
+          <div class="column">
+            {tents.map((item:any) => <p>{item.type} | {item.description}</p>)}
+          </div>
+        </div>
+      </div>
+      <div class="column is-half">
         <div set:html={content}></div>
       </div>
     </div>
+
   </div>
 </section>
 <style>

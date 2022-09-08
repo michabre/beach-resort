@@ -18,13 +18,26 @@ const SwiperCarousel = ({ slides }) => {
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={50}
       slidesPerView={1}
-      navigation
+      // navigation
       pagination={{ clickable: true }}
       // scrollbar={{ draggable: true }}
       // onSlideChange={() => console.log('slide change')}
       // onSwiper={(swiper) => console.log(swiper)}
     >
-      {slideItems.map((item) => <SwiperSlide key={item.title}>{item.title}</SwiperSlide>)}
+      {slideItems.map((item) => {
+        return (
+          <SwiperSlide key={item.title}>
+            <div className='columns p-6'>
+              <div className='column is-half'>
+                {item.title}
+              </div>
+              <div className='column is-half'>
+                image here
+              </div>
+            </div>
+          </SwiperSlide>
+        )
+      })}
     </Swiper>
     </>
   )

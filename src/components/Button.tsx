@@ -9,4 +9,4 @@ const Button = ({text, type, action}:IButton) => {
   )
 }
 
-export default Button;
+export default Button
