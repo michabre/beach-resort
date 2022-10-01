@@ -3,6 +3,9 @@
 import * as data from '../data/homepage.md'
 import * as rooms from '../data/rooms.md'
 import * as huts from '../data/picnic_huts.md'
+import * as rates from '../data/rates.md'
+
+const rate_content = rates.compiledContent()
 
 import Layout from 'layouts/Layout.astro'
 import Hero from 'components/Hero.astro'
@@ -24,30 +27,33 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
           <div class="column">
             <h2 class="is-size-2">{rooms.frontmatter.title}</h2>
 						<div set:html={rooms.compiledContent()}></div>
-          </div>
-          <div class="column is-flex is-justify-content-flex-start">
-            <p class="tag is-black is-large is-align-self-flex-end">{rooms.frontmatter.prices}</p>
-          </div>
-        </div>
 
-				<div class="columns">
+          </div>
 					<div class="column">
-						<div class="notification">
-							For more information: call 1-800-GET-BEACH
-						</div>
+						<p class="tag is-black is-large is-align-self-flex-end">{rooms.frontmatter.prices}</p>
 					</div>
 				</div>
 
 				<div class="columns">
-          <div class="column is-flex">
-            <p class="tag is-black is-large is-align-self-flex-end">{huts.frontmatter.prices}</p>
-          </div>
-          <div class="column">
-            <h2 class="is-size-2">{huts.frontmatter.title}</h2>
+					<div class="column">
+						<p class="tag is-black is-large is-align-self-flex-end">{huts.frontmatter.prices}</p>
+					</div>
+					<div class="column">
+						<h2 class="is-size-2">{huts.frontmatter.title}</h2>
 						<div set:html={huts.compiledContent()}></div>
-          </div>
-        </div>
+					</div>
+				</div>
+
       </div>
+
+			<div class="container">
+				<div class="columns">
+					<div class="column notification">
+						<div set:html={rates.compiledContent()}></div>
+					</div>
+				</div>
+			</div>
+			
 		</section>
 
 		<!-- Features -->
