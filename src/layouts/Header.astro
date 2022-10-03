@@ -6,6 +6,7 @@ import * as data from '../data/navigation.md';
 import Button from "../components/Button.jsx";
 import NavBarItem from "../components/NavBarItem.jsx"
 
+const title = data.frontmatter.title
 const logo = data.frontmatter.logo
 const headerLinks = data.frontmatter.links
 
@@ -27,7 +28,7 @@ function handleOnClick() {
 
   <div id="navbarExampleTransparentExample" class="navbar-menu">
     <div class="navbar-start">
-      
+      <h1><a href="/">{title}</a></h1>
     </div>
 
     <div class="navbar-end">
@@ -51,6 +52,10 @@ function handleOnClick() {
   </div>
 </nav>
 <style>
+  h1 a {
+    font-size: 2rem;
+    font-weight: 900;
+  }
   .navbar {
     background: transparent;
     margin: 1rem;

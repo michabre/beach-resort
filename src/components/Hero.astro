@@ -1,17 +1,26 @@
 ---
 // Hero
+
+import "@fontsource/allura"
+import * as data from '../data/hero.md'
+
+const title = data.frontmatter.title
+const tagline = data.frontmatter.tagline
+const button = data.frontmatter.button
 ---
 <section class="hero is-medium is-link" >
   
-    <div class="columns m-2">
-      <div class="column is-half text-content hero-body">
-        <h2 class="title is-size-1">
-          Bolod Beach Resort
+    <div class="columns m-2  is-justify-content-center is-align-content-center">
+      <div class="column is-two-fifths text-content has-text-centered">
+        <h2 class="title has-text-black">
+          {title}
         </h2>
-        <h3 class="subtitle">
-          Bringing family and friends together
+        <h3 class="subtitle has-text-black">
+          {tagline}
         </h3>
-        <button class="button is-danger">Book Now</button>
+        <button class="button is-danger is-large mb-5">{button}</button>
+
+        <p class="has-text-black">Read about us on <a href="https://www.tripadvisor.com/Hotel_Review-g294258-d2512880-Reviews-Bolod_Beach_Resort-Visayas_Panglao_Island.html?m=66412#photos">TripAdvisor</a></p>
       </div>
     </div>
           
@@ -29,7 +38,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: rgba(0,0,0,0.4);
+    background: rgba(255,255,255,0.6);
     width: 100%;
     height: 100%;
     z-index: 9;
@@ -41,10 +50,16 @@
   display: flex;
   align-items: center;
 }
+.hero .title {
+  font-family: "Allura", cursive;
+  font-size: 10rem;
+  line-height: 6rem;
+}
+.hero .subtitle {
+  font-size: 2.5rem;
+}
+
   .text-content {
-    background-color: #000;
-    height: 100%;
     z-index: 29;
-    border-bottom-right-radius: 30px;
   }
 </style>
