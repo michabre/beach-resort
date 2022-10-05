@@ -1,4 +1,5 @@
 import INavBarItem from '@interfaces/INavBarItem'
+import './navbar-item.css'
 
 const NavBarItem = ({title, url}:INavBarItem) => {
   return (

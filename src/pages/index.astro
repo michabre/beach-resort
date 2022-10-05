@@ -25,7 +25,7 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
       <div class="container">
         <div class="columns">
           <div class="column">
-            <h2 class="is-size-2">{rooms.frontmatter.title}</h2>
+            <h2>{rooms.frontmatter.title}</h2>
 						<div set:html={rooms.compiledContent()}></div>
 
           </div>
@@ -39,7 +39,7 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 						<p class="tag is-black is-large is-align-self-flex-end">{huts.frontmatter.prices}</p>
 					</div>
 					<div class="column">
-						<h2 class="is-size-2">{huts.frontmatter.title}</h2>
+						<h2>{huts.frontmatter.title}</h2>
 						<div set:html={huts.compiledContent()}></div>
 					</div>
 				</div>
@@ -86,6 +86,12 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 
 	h1 {
 		margin: 2rem 0;
+	}
+
+	h2 {
+		font-family: "Allura", cursive;
+		font-weight: 900 !important;
+		font-size: 3rem !important;
 	}
 
 	.text-gradient {
