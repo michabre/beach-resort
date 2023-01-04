@@ -11,13 +11,14 @@ const iconOptions:Iicons = {
   'clock': <FaRegClock />
 }
 
-const Button = ({text, icon, type, action}:IButton) => {
+const Button = ({text, icon, type, action, url}:IButton) => {
   let buttonClass = `button ${type}`
   let buttonIcon = icon ?? ''
+
   return (
-    <button className={buttonClass} onClick={action}>
+    <a className={buttonClass} href={url} onClick={action}>
        {text} {iconOptions[buttonIcon]}
-    </button>
+    </a>
   )
 }
 

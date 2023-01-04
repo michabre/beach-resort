@@ -1,0 +1,11 @@
+---
+// Carousel
+
+import SwiperCarousel from "./SwiperCarousel.jsx"
+import * as data from '../../data/features.md'
+---
+<section id="amenities">
+  <div class="container">
+    <SwiperCarousel slides={data} client:idle />
+  </div>
+</section>

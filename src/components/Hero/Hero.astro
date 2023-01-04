@@ -1,16 +1,14 @@
 ---
 // Hero
 
-import "@fontsource/allura"
-import * as data from '../data/hero.md'
+import * as data from '../../data/hero.md'
 
 const title = data.frontmatter.title
 const tagline = data.frontmatter.tagline
 const button = data.frontmatter.button
 ---
 <section class="hero is-medium is-link" >
-  
-    <div class="columns m-2  is-justify-content-center is-align-content-center">
+    <div class="columns m-2 is-justify-content-center is-align-content-center">
       <div class="column is-two-fifths text-content has-text-centered">
         <h2 class="title has-text-black">
           {title}
@@ -44,20 +42,20 @@ const button = data.frontmatter.button
     z-index: 9;
   }
 
-.hero > .columns {
-  height: 100%;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-}
-.hero .title {
-  font-family: "Allura", cursive;
-  font-size: 10rem;
-  line-height: 9rem;
-}
-.hero .subtitle {
-  font-size: 2.5rem;
-}
+  .hero > .columns {
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+  }
+  .hero .title {
+    font-family: "Allura", cursive;
+    font-size: 10rem;
+    line-height: 9rem;
+  }
+  .hero .subtitle {
+    font-size: 2.5rem;
+  }
 
   .text-content {
     z-index: 29;

@@ -26,6 +26,7 @@
     "@fontsource/allura": "^4.5.11",
     "@fontsource/catamaran": "^4.5.9",
     "@fontsource/kavoon": "^4.5.9",
-    "@fontsource/roboto": "^4.5.8"
+    "@fontsource/roboto": "^4.5.8",
+    "react-anchor-link-smooth-scroll-v2": "^2.0.1"
   }
 }

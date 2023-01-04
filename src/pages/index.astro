@@ -8,8 +8,8 @@ import * as rates from '../data/rates.md'
 const rate_content = rates.compiledContent()
 
 import Layout from 'layouts/Layout.astro'
-import Hero from 'components/Hero.astro'
-import Carousel from 'components/Carousel.astro'
+import Hero from 'components/Hero/Hero.astro'
+import Carousel from 'components/Carousel/Carousel.astro'
 import Rates from 'components/Rates.astro'
 import Location from 'components/Location.astro'
 
@@ -21,7 +21,7 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 	<main>
 		<Hero />
 
-		<section id="accommodations" class="p-5">
+		<section id="rooms" class="p-5">
       <div class="container">
         <div class="columns">
           <div class="column">
@@ -80,6 +80,15 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 </Layout>
 
 <style>
+	:global(html) {
+		scroll-behavior: smooth;
+		scroll-padding-top: 70px;
+	}
+	@media (prefers-reduced-motion: reduce) {
+     :global(html) {
+       scroll-behavior: auto;
+     }
+   }
 	:root {
 		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
 	}
