@@ -1,6 +1,6 @@
 ---
 // Hero
-
+import Button from '../Button/Button'
 import * as data from '../../data/hero.md'
 
 const title = data.frontmatter.title
@@ -8,19 +8,22 @@ const tagline = data.frontmatter.tagline
 const button = data.frontmatter.button
 ---
 <section class="hero is-medium is-link" >
-    <div class="columns m-2 is-justify-content-center is-align-content-center">
-      <div class="column is-two-fifths text-content has-text-centered">
-        <h2 class="title has-text-black">
-          {title}
-        </h2>
-        <h3 class="subtitle has-text-black">
-          {tagline}
-        </h3>
-        <button class="button is-danger is-large mb-5">{button}</button>
-
-        <p class="has-text-black">Read about us on <a href="https://www.tripadvisor.com/Hotel_Review-g294258-d2512880-Reviews-Bolod_Beach_Resort-Visayas_Panglao_Island.html?m=66412#photos">TripAdvisor</a></p>
-      </div>
+  <div class="columns m-2 is-justify-content-center is-align-content-center">
+    <div class="column is-two-fifths text-content has-text-centered">
+      <h2 class="title has-text-black">
+        {title}
+      </h2>
+      <h3 class="subtitle has-text-black">
+        {tagline}
+      </h3>
+      <button class="button is-danger is-large mb-5">{button}</button>
     </div>
+  </div>
+
+  <div class="is-flex is-justify-content-end is-align-items-center my-2 mx-3" style="z-index:10;">
+    <span class="has-text-black mr-4">Read about us on</span>
+    <Button text="TripAdvisor" icon="tripAdvisor" type="is-link is-outlined" action={()=>{}} url="https://www.tripadvisor.com/Hotel_Review-g294258-d2512880-Reviews-Bolod_Beach_Resort-Visayas_Panglao_Island.html?m=66412#photos" client:idle />
+  </div>
           
   
 </section>

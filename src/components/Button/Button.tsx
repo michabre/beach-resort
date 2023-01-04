@@ -1,14 +1,15 @@
 import IButton from '@interfaces/IButton'
 import Iicons from '@interfaces/IIcons'
 
-import { FaBeer, FaPhone, FaRegClock } from 'react-icons/fa';
+import { FaBeer, FaPhone, FaRegClock, FaTripadvisor } from 'react-icons/fa';
 
 import './button.css'
 
 const iconOptions:Iicons = {
   'beer': <FaBeer />,
   'phone': <FaPhone />,
-  'clock': <FaRegClock />
+  'clock': <FaRegClock />,
+  'tripAdvisor': <FaTripadvisor />
 }
 
 const Button = ({text, icon, type, action, url}:IButton) => {
