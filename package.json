@@ -18,7 +18,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.4.0",
-    "sass": "^1.54.5",
     "swiper": "^8.3.2",
     "typescript": "^4.8.2"
   },
@@ -26,7 +25,6 @@
     "@fontsource/allura": "^4.5.11",
     "@fontsource/catamaran": "^4.5.9",
     "@fontsource/kavoon": "^4.5.9",
-    "@fontsource/roboto": "^4.5.8",
-    "react-anchor-link-smooth-scroll-v2": "^2.0.1"
+    "@fontsource/roboto": "^4.5.8"
   }
 }

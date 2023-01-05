@@ -1,6 +1,7 @@
 ---
 // Hero
 import Button from '../Button/Button'
+import { FaArrowDown } from 'react-icons/fa';
 import * as data from '../../data/hero.md'
 
 const title = data.frontmatter.title
@@ -9,28 +10,27 @@ const button = data.frontmatter.button
 ---
 <section class="hero is-medium is-link" >
   <div class="columns m-2 is-justify-content-center is-align-content-center">
-    <div class="column is-two-fifths text-content has-text-centered">
+    <div class="column is-three-fifths text-content has-text-centered">
       <h2 class="title has-text-black">
         {title}
       </h2>
       <h3 class="subtitle has-text-black">
         {tagline}
       </h3>
-      <button class="button is-danger is-large mb-5">{button}</button>
+      <a href="#book-now" class="button is-black is-large mb-5">{button} <FaArrowDown /></a>
     </div>
   </div>
 
   <div class="is-flex is-justify-content-end is-align-items-center my-2 mx-3" style="z-index:10;">
-    <span class="has-text-black mr-4">Read about us on</span>
-    <Button text="TripAdvisor" icon="tripAdvisor" type="is-link is-outlined" action={()=>{}} url="https://www.tripadvisor.com/Hotel_Review-g294258-d2512880-Reviews-Bolod_Beach_Resort-Visayas_Panglao_Island.html?m=66412#photos" client:idle />
+    <span class="is-size-5 has-text-black has-text-weight-semibold mr-4">Read about us on</span>
+    <Button text="TripAdvisor" icon="tripAdvisor" type="is-link is-success" action={()=>{}} url="https://www.tripadvisor.com/Hotel_Review-g294258-d2512880-Reviews-Bolod_Beach_Resort-Visayas_Panglao_Island.html?m=66412#photos" client:idle />
   </div>
           
-  
 </section>
 <style>
   .hero {
     height: 100vh;
-    background: #fff url('./img/Tropical-Beach.jpg') no-repeat bottom right;
+    background: #fff url('./img/friends.jpg') no-repeat top left;
     background-size: cover;
     position: relative;
   }
@@ -53,11 +53,15 @@ const button = data.frontmatter.button
   }
   .hero .title {
     font-family: "Allura", cursive;
-    font-size: 10rem;
-    line-height: 9rem;
+    font-size: 8rem;
+    line-height: 6rem;
+    margin-bottom: 2.5rem;
   }
   .hero .subtitle {
-    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    font-style: italic;
+
   }
 
   .text-content {

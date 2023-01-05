@@ -24,3 +24,6 @@ pnpm-debug.log*
 
 # data files
 src/data/*.md
+
+# images
+public/img

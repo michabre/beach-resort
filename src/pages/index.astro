@@ -47,10 +47,14 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
       </div>
 
 			<div class="container">
-				<div class="columns">
-					<div class="column notification">
+				<div class="columns is-flex is-justify-content-center">
+					<h3 class="has-text-centered">Additional Information</h3>
+				</div>
+				<div class="columns is-flex is-justify-content-center">
+					<div class="column is-two-thirds notification">
 						<div set:html={rates.compiledContent()}></div>
 					</div>
+					
 				</div>
 			</div>
 			
