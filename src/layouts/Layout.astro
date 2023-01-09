@@ -28,8 +28,9 @@ const { title } = Astro.props as Props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<ScrollDetection client:idle />
+		<ScrollDetection client:idle>
 		<Header />
+		</ScrollDetection>
 		<slot />
 		<Footer />
 	</body>

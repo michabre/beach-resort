@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 
-const ScrollDetection = () => {
+const ScrollDetection = ({children}:{children:any}) => {
   const [scrollDir, setScrollDir] = useState("scrolling down");
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const ScrollDetection = () => {
         ticking = false;
         return;
       }
-      setScrollDir(scrollY > lastScrollY ? "scrolling down" : "scrolling up");
+      setScrollDir(scrollY > lastScrollY ? "scrolling-down" : "scrolling-up");
       lastScrollY = scrollY > 0 ? scrollY : 0;
       ticking = false;
     };
@@ -28,17 +28,21 @@ const ScrollDetection = () => {
       if (!ticking) {
         window.requestAnimationFrame(updateScrollDir);
         ticking = true;
+        //console.log(scrollY);
       }
     };
 
     window.addEventListener("scroll", onScroll);
-    console.log(scrollDir);
+    //console.log(scrollDir);
+    
 
     return () => window.removeEventListener("scroll", onScroll);
   }, [scrollDir]);
 
   return (
-    <div>Scroll Detection</div>
+    <div className={`scrollDetector ${scrollDir}`}>
+      {children}
+    </div>
   )
 }
 
