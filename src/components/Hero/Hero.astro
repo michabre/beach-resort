@@ -53,18 +53,32 @@ const button = data.frontmatter.button
   }
   .hero .title {
     font-family: "Allura", cursive;
-    font-size: 8rem;
-    line-height: 6rem;
-    margin-bottom: 2.5rem;
+    font-size: 4.5rem;
+    line-height: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+   
   }
+  
   .hero .subtitle {
     font-family: 'Roboto', sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-style: italic;
 
   }
 
   .text-content {
     z-index: 29;
+  }
+
+  @media (min-width: 768px) {
+    .hero .title {
+      font-size: 8rem;
+      line-height: 6rem;
+    }   
+    .hero .subtitle {
+      font-size: 2rem;
+    } 
   }
 </style>

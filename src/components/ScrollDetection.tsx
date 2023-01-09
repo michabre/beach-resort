@@ -1,12 +1,11 @@
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 
 const ScrollDetection = ({children}:{children:any}) => {
   const [scrollDir, setScrollDir] = useState("scrolling down");
+  const [inMotion, setInMotion] = useState("")
 
   useEffect(() => {
     // courtesy of https://stackoverflow.com/questions/62497110/detect-scroll-direction-in-react-js
-    
-    console.log('test')
 
     const threshold = 0;
     let lastScrollY = window.pageYOffset;
@@ -28,19 +27,20 @@ const ScrollDetection = ({children}:{children:any}) => {
       if (!ticking) {
         window.requestAnimationFrame(updateScrollDir);
         ticking = true;
-        //console.log(scrollY);
+        if (scrollY > 50) {
+          setInMotion("in-motion")
+        } else {
+          setInMotion("")
+        }
       }
     };
 
     window.addEventListener("scroll", onScroll);
-    //console.log(scrollDir);
-    
-
     return () => window.removeEventListener("scroll", onScroll);
   }, [scrollDir]);
 
   return (
-    <div className={`scrollDetector ${scrollDir}`}>
+    <div className={`scrollDetector ${scrollDir} ${inMotion}`}>
       {children}
     </div>
   )

@@ -16,14 +16,8 @@ function handleOnClick() {
 ---
 <nav class="navbar is-transparent is-fixed-top">
   <div class="navbar-brand">
-    <!-- <a class="navbar-item" href="/">
-      <img src={logo} alt="" width="86" height="60">
-    </a> -->
-    <div class="navbar-burger" data-target="navbarExampleTransparentExample">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <h1><a href="#">{title}</a></h1>
+    <Button text="" icon="menu" type="is-link is-outlined" action={handleOnClick} url="#" client:idle />
   </div>
 
   <div id="navbarExampleTransparentExample" class="navbar-menu">
@@ -60,7 +54,6 @@ function handleOnClick() {
   }
   .navbar {
     background: transparent;
-    margin: 1rem;
   }
   .navbar .navbar-item {
     font-size: 1rem;
@@ -69,5 +62,14 @@ function handleOnClick() {
   }
   .navbar-item img {
     max-height: none;
-}
+  }
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+  }
+  .navbar-brand h1 a {
+    font-size: 1.5rem;
+  }
 </style>
