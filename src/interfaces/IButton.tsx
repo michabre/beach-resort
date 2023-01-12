@@ -2,7 +2,7 @@ interface IButton {
   text: string; 
   icon: string;
   type: string;
-  action: () => void
+  handler: () => void
   url: string;
 }
 

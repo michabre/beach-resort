@@ -1,5 +1,6 @@
 ---
 // Import some markdown. Dynamic import() is also supported!
+import * as about from '../data/about.md'
 import * as data from '../data/homepage.md'
 import * as rooms from '../data/rooms.md'
 import * as huts from '../data/picnic_huts.md'
@@ -20,6 +21,10 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 <Layout title={data.frontmatter.title}>
 	<main>
 		<Hero />
+
+		<section id="about" class="p-5 has-text-centered">
+			<div set:html={about.compiledContent()}></div>
+		</section>
 
 		<section id="rooms" class="p-5">
       <div class="container">
@@ -95,16 +100,6 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
    }
 	:root {
 		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
-	}
-
-	h1 {
-		margin: 2rem 0;
-	}
-
-	h2 {
-		font-family: "Allura", cursive;
-		font-weight: 900 !important;
-		font-size: 3rem !important;
 	}
 
 	.text-gradient {

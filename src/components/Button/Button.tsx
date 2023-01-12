@@ -13,12 +13,16 @@ const iconOptions:Iicons = {
   'menu': <FaBars />
 }
 
-const Button = ({text, icon, type, action, url}:IButton) => {
+const Button = ({text, icon, type, handler, url}:IButton) => {
   let buttonClass = `button ${type}`
   let buttonIcon = icon ?? ''
 
+  function buttonHandler(a:any) {
+    console.log('click: ', a)
+  }
+
   return (
-    <a className={buttonClass} href={url} onClick={action}>
+    <a className={buttonClass} href={url} onClick={() => buttonHandler('test')}>
        {text} {iconOptions[buttonIcon]}
     </a>
   )

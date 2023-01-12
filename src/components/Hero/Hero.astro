@@ -23,7 +23,7 @@ const button = data.frontmatter.button
 
   <div class="is-flex is-justify-content-end is-align-items-center my-2 mx-3" style="z-index:10;">
     <span class="is-size-5 has-text-black has-text-weight-semibold mr-4">Read about us on</span>
-    <Button text="TripAdvisor" icon="tripAdvisor" type="is-link is-success" action={()=>{}} url="https://www.tripadvisor.com/Hotel_Review-g294258-d2512880-Reviews-Bolod_Beach_Resort-Visayas_Panglao_Island.html?m=66412#photos" client:idle />
+    <Button text="TripAdvisor" icon="tripAdvisor" type="is-link is-success" handler={()=>{}} url="https://www.tripadvisor.com/Hotel_Review-g294258-d2512880-Reviews-Bolod_Beach_Resort-Visayas_Panglao_Island.html?m=66412#photos" client:idle />
   </div>
           
 </section>
@@ -58,7 +58,6 @@ const button = data.frontmatter.button
     margin-top: 2rem;
     margin-bottom: 2rem;
     text-transform: capitalize;
-   
   }
   
   .hero .subtitle {
