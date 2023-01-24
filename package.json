@@ -7,10 +7,13 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "npx playwright test",
+    "show-report": "npx playwright show-report"
   },
   "devDependencies": {
     "@astrojs/react": "^1.1.0",
+    "@playwright/test": "^1.29.2",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "astro": "^1.0.9",
