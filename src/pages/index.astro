@@ -6,6 +6,8 @@ import * as rooms from '../data/rooms.md'
 import * as huts from '../data/picnic_huts.md'
 import * as rates from '../data/rates.md'
 
+//import * as features from '../data/features.md'
+
 const rate_content = rates.compiledContent()
 
 import Layout from 'layouts/Layout.astro'
@@ -14,6 +16,9 @@ import Carousel from 'components/Carousel/Carousel.astro'
 import Rates from 'components/Rates.astro'
 import Location from 'components/Map/Location.astro'
 import ProfileCard from 'components/Card/ProfileCard.astro'
+
+import SwiperCarousel from 'components/Carousel/SwiperCarousel.jsx'
+
 
 const env_example = import.meta.env.VITE_ENV_EXAMPLE
 
@@ -71,7 +76,13 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 		</section>
 
 		<!-- Features -->
-	  <Carousel />
+		<section id="amenities">
+			<div class="container">
+				<SwiperCarousel slides={data.frontmatter.features} client:idle />
+			</div>
+			<!-- <p>{data.frontmatter.features}</p> -->
+		</section>
+
 
 		<section id="rooms" class="p-5">
 			<div class="container">

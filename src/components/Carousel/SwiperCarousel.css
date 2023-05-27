@@ -1,0 +1,12 @@
+.image-content {
+  width: auto;
+  position: absolute;
+  padding: 16px;
+  text-align: center;
+  background-color: #fff;
+  right: 20px;
+  top: 20px;
+}
+.swiper-slide img {
+  width: 100%;
+}
