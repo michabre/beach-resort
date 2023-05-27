@@ -14,12 +14,14 @@
   "devDependencies": {
     "@astrojs/react": "^1.1.0",
     "@playwright/test": "^1.29.2",
+    "@types/google-map-react": "^2.1.7",
+    "@types/leaflet": "^1.9.3",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "astro": "^1.0.9",
     "bulma": "^0.9.4",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "swiper": "^8.3.2",
     "typescript": "^4.8.2"
@@ -28,6 +30,9 @@
     "@fontsource/allura": "^4.5.11",
     "@fontsource/catamaran": "^4.5.9",
     "@fontsource/kavoon": "^4.5.9",
-    "@fontsource/roboto": "^4.5.8"
+    "@fontsource/roboto": "^4.5.8",
+    "google-map-react": "^2.2.1",
+    "leaflet": "^1.9.4",
+    "react-leaflet": "^4.2.1"
   }
 }

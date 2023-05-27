@@ -12,7 +12,8 @@ import Layout from 'layouts/Layout.astro'
 import Hero from 'components/Hero/Hero.astro'
 import Carousel from 'components/Carousel/Carousel.astro'
 import Rates from 'components/Rates.astro'
-import Location from 'components/Location.astro'
+import Location from 'components/Map/Location.astro'
+import ProfileCard from 'components/Card/ProfileCard.astro'
 
 const env_example = import.meta.env.VITE_ENV_EXAMPLE
 
@@ -22,35 +23,57 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 	<main>
 		<Hero />
 
-		<section id="about" class="p-5 has-text-centered">
-			<div set:html={about.compiledContent()}></div>
+		<section id="about" class="p-5">
+			<div class="container">
+				<div class="columns">
+					<div class="column is-two-thirds card" set:html={about.compiledContent()}></div>
+					<div class="column">
+						<div class="is-flex is-flex-direction-column max-height">
+							<div class="margin-top-auto">
+								<h3>Sharing Links</h3>
+								<p>Here are some links to share</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 
-		<section id="rooms" class="p-5">
+		<section id="stay" class="p-5">
       <div class="container">
         <div class="columns">
-          <div class="column">
-            <h2>{rooms.frontmatter.title}</h2>
-						<div set:html={rooms.compiledContent()}></div>
-
-          </div>
-					<div class="column">
-						<p class="tag is-black is-large is-align-self-flex-end">{rooms.frontmatter.prices}</p>
+					<div class="column is-one-third">
+						<ProfileCard 
+							title={rooms.frontmatter.title}
+							description="For that beach side resort experience"
+							content={rooms.compiledContent()}
+							pricing={rooms.frontmatter.prices}
+						/>
+					</div>
+					<div class="column is-one-third">
+						<ProfileCard 
+							title={huts.frontmatter.title} 
+							description="Perfect for get togethers and family gatherings"
+							content={huts.compiledContent()}
+							pricing={huts.frontmatter.prices}
+						/>
+					</div>
+					<div class="column is-one-third">
+						<ProfileCard 
+							title="Camping"
+							description="Wake up to a beautify sunrise"
+							content={rooms.compiledContent()}
+							pricing="500-2000"
+						/>
 					</div>
 				</div>
+			</div>
+		</section>
 
-				<div class="columns">
-					<div class="column">
-						<p class="tag is-black is-large is-align-self-flex-end">{huts.frontmatter.prices}</p>
-					</div>
-					<div class="column">
-						<h2>{huts.frontmatter.title}</h2>
-						<div set:html={huts.compiledContent()}></div>
-					</div>
-				</div>
+		<!-- Features -->
+	  <Carousel />
 
-      </div>
-
+		<section id="rooms" class="p-5">
 			<div class="container">
 				<div class="columns is-flex is-justify-content-center">
 					<h3 class="has-text-centered">Additional Information</h3>
@@ -65,8 +88,7 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 			
 		</section>
 
-		<!-- Features -->
-	  <Carousel />
+		
 
     <!-- RATES -->
 		<Rates />
@@ -102,6 +124,14 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
 	}
 
+	.max-height { 
+		height: 100%;
+	}
+
+	.margin-top-auto {
+		margin-top:auto;
+	}
+
 	.text-gradient {
 		font-weight: 900;
 		background-image: var(--astro-gradient);
@@ -111,6 +141,13 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 		background-position-y: 100%;
 		border-radius: 0.4rem;
 		animation: pulse 4s ease-in-out infinite;
+	}
+
+	#about {
+		margin-top: -60px;
+	}
+	#about .card {
+		z-index: 9;
 	}
 
 	@keyframes pulse {
