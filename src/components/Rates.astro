@@ -11,74 +11,71 @@ const hours = data.frontmatter.hours
 const content = data.compiledContent()
 
 ---
-<section id="pricing" class="p-5">
-  <div class="container">
-    <div class="columns">
-      <div class="column">
-        <h2 class="is-size-2">Rates</h2>
-      </div>
-    </div>
-
-    <div class="columns">
-      <div class="column is-one-third">
-        <h2 class="is-size-4">Picnic Area</h2>
-        <table class="table is-fullwidth">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Guests</th>
-              <th>Daytime (P)</th>
-              <th>Overnight (P)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {picnic_area.map((item:any) => ( 
-              <tr>
-                <td>{item.type}</td>  
-                <td>{item.description}</td>
-                <td>{item.daytime}</td>
-                <td>{item.overnight}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        
-      </div>
-
-      <div class="column is-one-third">
-        <h2 class="is-size-4">Rooms</h2>
-        
-        <table class="table is-fullwidth">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Guests</th>
-              <th>Price (P)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rooms.map((item:any) => (
-              <tr>
-                <td>{item.type}</td>
-                <td>{item.description}</td>
-                <td>{item.price}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        
-      </div>
-
-
-      <div class="column is-one-third">
-        <h2 class="is-size-4">Tents</h2>
-        {tents.map((item:any) => <p>{item.type} {item.description}</p><p><strong>P{item.price}</strong></p>)}
-      </div>
-
-
-    </div>
-
+<div class="column is-one-third">
+    <h2 class="is-size-4">Picnic Area</h2>
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Guests</th>
+          <th>Daytime (P)</th>
+          <th>Overnight (P)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {picnic_area.map((item:any) => ( 
+          <tr>
+            <td>{item.type}</td>  
+            <td>{item.description}</td>
+            <td>{item.daytime}</td>
+            <td>{item.overnight}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   </div>
-</section>
-<style>
-</style>
+
+  <div class="column is-one-third">
+    <h2 class="is-size-4">Rooms</h2>
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Guests</th>
+          <th>Price (P)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rooms.map((item:any) => (
+          <tr>
+            <td>{item.type}</td>
+            <td>{item.description}</td>
+            <td>{item.price}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="column is-one-fifth">
+    <h2 class="is-size-4">Tents</h2>
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Guests</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {tents.map((item:any) => ( 
+          <tr>
+            <td>{item.type}</td>  
+            <td>{item.description}</td>
+            <td>{item.price}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>

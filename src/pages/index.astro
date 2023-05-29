@@ -46,6 +46,11 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 
 		<section id="stay" class="p-5">
       <div class="container">
+				<div class="columns">
+					<div class="column">
+						<h2 class="is-size-2 has-text-centered">What We Offer</h2>
+					</div>
+				</div>
         <div class="columns">
 					<div class="column is-one-third">
 						<ProfileCard 
@@ -72,44 +77,66 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 						/>
 					</div>
 				</div>
+				<div class="columns">
+					<div class="column">
+						<h2 class="is-size-2 has-text-centered">Our Generous Rates</h2>
+					</div>
+				</div>
+				<div class="columns is-justify-content-center">
+					<Rates />
+				</div>
 			</div>
 		</section>
 
 		<!-- Features -->
 		<section id="amenities">
 			<div class="container">
+				<div class="columns">
+					<div class="column">
+						<h2 class="is-size-2 has-text-centered">Features</h2>
+					</div>
+				</div>
 				<SwiperCarousel slides={data.frontmatter.features} client:idle />
 			</div>
-			<!-- <p>{data.frontmatter.features}</p> -->
 		</section>
-
-
-		<section id="rooms" class="p-5">
-			<div class="container">
-				<div class="columns is-flex is-justify-content-center">
-					<h3 class="has-text-centered">Additional Information</h3>
-				</div>
-				<div class="columns is-flex is-justify-content-center">
-					<div class="column is-two-thirds notification">
-						<div set:html={rates.compiledContent()}></div>
-					</div>
-					
-				</div>
-			</div>
-			
-		</section>
-
-		
-
-    <!-- RATES -->
-		<Rates />
 
 		<!-- LOCATION -->
-		<Location />
+		<section id="location" class="p-5">
+			<div class="container">
+				<div class="columns">
+					<div class="column is-half">
+						<h2 class="is-size-2">Where to Find Us</h2>
+						<ul>
+							<li>Purok 6, Sitio Sapa, 6340 Philippines</li>
+							<li>bolodbeachresort@yahoo.com.ph</li>
+							<li>+63 920 603 9927</li>
+						</ul>
+
+						<div class="pt-5"></div>
+
+						<h2 class="is-size-2">Additional Info</h2>
+						<div set:html={rates.compiledContent()}></div>
+					</div>
+					<div class="column is-half">
+						<div class="image is-4by3 map-wrapper">
+							<div class="map-component">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15737.796293753707!2d123.8050511!3d9.556501!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aa5339c20ee1c3%3A0x7cdd0e156b5cd1e7!2sPanglao%20Bolod%20Beach%20Resort!5e0!3m2!1sen!2sph!4v1685202750494!5m2!1sen!2sph" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
 
     <!-- BOOK NOW -->
 		<section id="book-now" class="p-5">
       <div class="container">
+				<div class="columns">
+					<div class="column">
+						<h2 class="is-size-2 has-text-centered">Book Now</h2>
+					</div>
+				</div>
         <div class="columns">
           <div class="column has-text-centered">
 						<p>{env_example}</p>
@@ -160,6 +187,17 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 	#about .card {
 		z-index: 9;
 	}
+	.map-wrapper {
+    background-color: aliceblue;
+    position: relative;
+  }
+  .map-component {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
 	@keyframes pulse {
 		0%,

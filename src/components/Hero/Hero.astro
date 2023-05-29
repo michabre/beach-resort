@@ -1,7 +1,6 @@
 ---
 // Hero
 import Button from '../Button/Button'
-import { FaArrowDown } from 'react-icons/fa';
 import * as data from '../../data/hero.md'
 
 const title = data.frontmatter.title
@@ -10,7 +9,7 @@ const button = data.frontmatter.button
 ---
 <section class="hero is-medium is-link" >
   <div class="columns m-2 is-justify-content-center is-align-content-center">
-    <div class="column is-three-fifths text-content has-text-centered">
+    <div class="column text-content has-text-centered">
       <h2 class="title has-text-black">
         {title}
       </h2>
@@ -53,7 +52,7 @@ const button = data.frontmatter.button
   }
   .hero .title {
     font-family: "Allura", cursive;
-    font-size: 4.5rem;
+    font-size: 4rem;
     line-height: 4rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -73,7 +72,7 @@ const button = data.frontmatter.button
 
   @media (min-width: 768px) {
     .hero .title {
-      font-size: 8rem;
+      font-size: 6rem;
       line-height: 6rem;
     }   
     .hero .subtitle {
