@@ -1,37 +1,42 @@
 ---
 // Import some markdown. Dynamic import() is also supported!
-import * as about from '../data/about.md'
 import * as data from '../data/homepage.md'
+
 import * as rooms from '../data/rooms.md'
 import * as huts from '../data/picnic_huts.md'
 import * as rates from '../data/rates.md'
 
-//import * as features from '../data/features.md'
-
-const rate_content = rates.compiledContent()
-
 import Layout from 'layouts/Layout.astro'
-import Hero from 'components/Hero/Hero.astro'
-import Carousel from 'components/Carousel/Carousel.astro'
+import Footer from 'layouts/Footer.astro'
 import Rates from 'components/Rates.astro'
-import Location from 'components/Map/Location.astro'
 import ProfileCard from 'components/Card/ProfileCard.astro'
 
+import Hero from 'components/Hero/Hero.astro'
 import SwiperCarousel from 'components/Carousel/SwiperCarousel.jsx'
 
+const form_handler = import.meta.env.CONTACT_FORM_HANDLER
+const form_type = import.meta.env.CONTACT_FORM_TYPE
 
-const env_example = import.meta.env.VITE_ENV_EXAMPLE
+const hours_list = data.frontmatter.hours
 
 ---
 
 <Layout title={data.frontmatter.title}>
 	<main>
-		<Hero />
+
+		<Hero 
+			title={data.frontmatter.hero_title} 
+			subtitle={data.frontmatter.hero_subtitle} 
+			button={data.frontmatter.hero_button_text}
+		/>
 
 		<section id="about" class="p-5">
 			<div class="container">
 				<div class="columns">
-					<div class="column is-two-thirds card" set:html={about.compiledContent()}></div>
+					<div class="column is-two-thirds card">
+						<h3>{data.frontmatter.about_title}</h3>
+						<div set:html={data.frontmatter.about_description}></div>
+					</div>
 					<div class="column">
 						<div class="is-flex is-flex-direction-column max-height">
 							<div class="margin-top-auto">
@@ -48,13 +53,18 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
       <div class="container">
 				<div class="columns">
 					<div class="column">
-						<h2 class="is-size-2 has-text-centered">What We Offer</h2>
+						<h2 class="is-size-2 has-text-centered">{data.frontmatter.stay_title}</h2>
+						<ul>
+							<li>NO ENTRANCE FEE & NO CORKAGE FEE for foods/drinks</li>
+							<li>RESERVATIONS for Picnic Huts needed except on Saturdays, Sundays and Holidays</li>
+						</ul>
 					</div>
 				</div>
         <div class="columns">
 					<div class="column is-one-third">
 						<ProfileCard 
 							title={rooms.frontmatter.title}
+							image="https://bulma.io/images/placeholders/480x480.png"
 							description="For that beach side resort experience"
 							content={rooms.compiledContent()}
 							pricing={rooms.frontmatter.prices}
@@ -62,7 +72,8 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 					</div>
 					<div class="column is-one-third">
 						<ProfileCard 
-							title={huts.frontmatter.title} 
+							title={huts.frontmatter.title}
+							image="https://bulma.io/images/placeholders/480x480.png"
 							description="Perfect for get togethers and family gatherings"
 							content={huts.compiledContent()}
 							pricing={huts.frontmatter.prices}
@@ -71,7 +82,8 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 					<div class="column is-one-third">
 						<ProfileCard 
 							title="Camping"
-							description="Wake up to a beautify sunrise"
+							image="https://bulma.io/images/placeholders/480x480.png"
+							description="Wake up to a beautiful sunrise"
 							content={rooms.compiledContent()}
 							pricing="500-2000"
 						/>
@@ -79,11 +91,16 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 				</div>
 				<div class="columns">
 					<div class="column">
-						<h2 class="is-size-2 has-text-centered">Our Generous Rates</h2>
+						<h2 class="is-size-2 has-text-centered">{data.frontmatter.rates_title}</h2>
 					</div>
 				</div>
 				<div class="columns is-justify-content-center">
 					<Rates />
+				</div>
+				<div class="columns">
+					<div class="column">
+						<p class="has-text-centered">Prices may change without prior notice</p>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -93,19 +110,153 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 			<div class="container">
 				<div class="columns">
 					<div class="column">
-						<h2 class="is-size-2 has-text-centered">Features</h2>
+						<h2 class="is-size-2 has-text-centered">{data.frontmatter.features_title}</h2>
 					</div>
 				</div>
 				<SwiperCarousel slides={data.frontmatter.features} client:idle />
 			</div>
 		</section>
 
+		<!-- BOOK NOW -->
+		<section id="book-now" class="p-5">
+      <div class="container">
+        <div class="columns">
+          <div class="column has-text-centered">
+						<h2 class="is-size-2">{data.frontmatter.book_now_title}</h2>
+  
+						<form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action={form_handler} method={form_type}>
+							<fieldset id="fs-frm-inputs">
+								<label for="full-name">Full Name</label>
+								<input type="text" name="name" id="full-name" placeholder="First and Last" required="">
+								<label for="email-address">Email Address</label>
+								<input type="email" name="_replyto" id="email-address" placeholder="email@domain.tld" required="">
+								<label for="message">Message</label>
+								<textarea rows="5" name="message" id="message" placeholder="Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla nullam quis risus." required=""></textarea>
+								<input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+							</fieldset>
+							<input type="submit" value="Submit">
+						</form><style>/* reset */
+						#fs-frm input,
+						#fs-frm select,
+						#fs-frm textarea,
+						#fs-frm fieldset,
+						#fs-frm optgroup,
+						#fs-frm label,
+						#fs-frm #card-element:disabled {
+							font-family: inherit;
+							font-size: 100%;
+							color: inherit;
+							border: none;
+							border-radius: 0;
+							display: block;
+							width: 100%;
+							padding: 0;
+							margin: 0;
+							-webkit-appearance: none;
+							-moz-appearance: none;
+						}
+						#fs-frm label,
+						#fs-frm legend,
+						#fs-frm ::placeholder {
+							font-size: .825rem;
+							margin-bottom: .5rem;
+							padding-top: .2rem;
+							display: flex;
+							align-items: baseline;
+						}
+						
+						/* border, padding, margin, width */
+						#fs-frm input,
+						#fs-frm select,
+						#fs-frm textarea,
+						#fs-frm #card-element {
+							border: 1px solid rgba(0,0,0,0.2);
+							background-color: rgba(255,255,255,0.9);
+							padding: .75em 1rem;
+							margin-bottom: 1.5rem;
+						}
+						#fs-frm input:focus,
+						#fs-frm select:focus,
+						#fs-frm textarea:focus {
+							background-color: white;
+							outline-style: solid;
+							outline-width: thin;
+							outline-color: gray;
+							outline-offset: -1px;
+						}
+						#fs-frm [type="text"],
+						#fs-frm [type="email"] {
+							width: 100%;
+						}
+						#fs-frm [type="button"],
+						#fs-frm [type="submit"],
+						#fs-frm [type="reset"] {
+							width: auto;
+							cursor: pointer;
+							-webkit-appearance: button;
+							-moz-appearance: button;
+							appearance: button;
+						}
+						#fs-frm [type="button"]:focus,
+						#fs-frm [type="submit"]:focus,
+						#fs-frm [type="reset"]:focus {
+							outline: none;
+						}
+						#fs-frm [type="submit"],
+						#fs-frm [type="reset"] {
+							margin-bottom: 0;
+						}
+						#fs-frm select {
+							text-transform: none;
+						}
+						
+						#fs-frm [type="checkbox"] {
+							-webkit-appearance: checkbox;
+							-moz-appearance: checkbox;
+							appearance: checkbox;
+							display: inline-block;
+							width: auto;
+							margin: 0 .5em 0 0 !important;
+						}
+						
+						#fs-frm [type="radio"] {
+							-webkit-appearance: radio;
+							-moz-appearance: radio;
+							appearance: radio;
+						}
+						
+						/* address, locale */
+						#fs-frm fieldset.locale input[name="city"],
+						#fs-frm fieldset.locale select[name="state"],
+						#fs-frm fieldset.locale input[name="postal-code"] {
+							display: inline;
+						}
+						#fs-frm fieldset.locale input[name="city"] {
+							width: 52%;
+						}
+						#fs-frm fieldset.locale select[name="state"],
+						#fs-frm fieldset.locale input[name="postal-code"] {
+							width: 20%;
+						}
+						#fs-frm fieldset.locale input[name="city"],
+						#fs-frm fieldset.locale select[name="state"] {
+							margin-right: 3%;
+						}
+						</style>
+          </div>
+        </div>
+      </div>
+		</section>
+
+		
+	</main>
+	<Footer>
 		<!-- LOCATION -->
 		<section id="location" class="p-5">
 			<div class="container">
 				<div class="columns">
-					<div class="column is-half">
-						<h2 class="is-size-2">Where to Find Us</h2>
+					<div class="column">
+						<h2 class="is-size-2">{data.frontmatter.location_title}</h2>
 						<ul>
 							<li>Purok 6, Sitio Sapa, 6340 Philippines</li>
 							<li>bolodbeachresort@yahoo.com.ph</li>
@@ -114,10 +265,13 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 
 						<div class="pt-5"></div>
 
-						<h2 class="is-size-2">Additional Info</h2>
-						<div set:html={rates.compiledContent()}></div>
+						<h2 class="is-size-2">{data.frontmatter.hours_title}</h2>
+						<ul>
+							{hours_list.map((data:any) => <li><b>{data.type}</b>: {data.time}</li>)}
+						</ul>
+						
 					</div>
-					<div class="column is-half">
+					<div class="column is-two-thirds">
 						<div class="image is-4by3 map-wrapper">
 							<div class="map-component">
 								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15737.796293753707!2d123.8050511!3d9.556501!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aa5339c20ee1c3%3A0x7cdd0e156b5cd1e7!2sPanglao%20Bolod%20Beach%20Resort!5e0!3m2!1sen!2sph!4v1685202750494!5m2!1sen!2sph" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -127,25 +281,7 @@ const env_example = import.meta.env.VITE_ENV_EXAMPLE
 				</div>
 			</div>
 		</section>
-
-
-    <!-- BOOK NOW -->
-		<section id="book-now" class="p-5">
-      <div class="container">
-				<div class="columns">
-					<div class="column">
-						<h2 class="is-size-2 has-text-centered">Book Now</h2>
-					</div>
-				</div>
-        <div class="columns">
-          <div class="column has-text-centered">
-						<p>{env_example}</p>
-            <button class="button is-primary">Book Now</button>
-          </div>
-        </div>
-      </div>
-		</section>
-	</main>
+	</Footer>
 </Layout>
 
 <style>

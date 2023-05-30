@@ -1,11 +1,8 @@
 ---
 // Hero
 import Button from '../Button/Button'
-import * as data from '../../data/hero.md'
 
-const title = data.frontmatter.title
-const tagline = data.frontmatter.tagline
-const button = data.frontmatter.button
+const { title, subtitle, button } = Astro.props
 ---
 <section class="hero is-medium is-link" >
   <div class="columns m-2 is-justify-content-center is-align-content-center">
@@ -14,7 +11,7 @@ const button = data.frontmatter.button
         {title}
       </h2>
       <h3 class="subtitle has-text-black">
-        {tagline}
+        {subtitle}
       </h3>
       <a href="#book-now" class="button is-black is-large mb-5">{button}</a>
     </div>

@@ -1,18 +1,19 @@
 ---
-export interface Props {
+interface Props {
 	title: string
+  image: string
   description: string
   content: string
   pricing: string
 }
 
-const { title, description, content, pricing } = Astro.props as Props;
+const { title, image, description, content, pricing } = Astro.props;
 ---
 
 <div class="card">
   <div class="card-image">
     <figure class="image is-1by1">
-      <img src="https://bulma.io/images/placeholders/480x480.png" alt="Placeholder image" />
+      <img src={image} alt="Placeholder image" />
     </figure>
     <span class="tag is-success is-large">{pricing}</span>
   </div>
