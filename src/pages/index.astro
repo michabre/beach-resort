@@ -34,8 +34,9 @@ const hours_list = data.frontmatter.hours
 			<div class="container">
 				<div class="columns">
 					<div class="column is-two-thirds card">
-						<h3>{data.frontmatter.about_title}</h3>
+						<h3 class="is-3">{data.frontmatter.about_title}</h3>
 						<div set:html={data.frontmatter.about_description}></div>
+						<div>{data.frontmatter.about_tagline}</div>
 					</div>
 					<div class="column">
 						<div class="is-flex is-flex-direction-column max-height">
@@ -54,10 +55,6 @@ const hours_list = data.frontmatter.hours
 				<div class="columns">
 					<div class="column">
 						<h2 class="is-size-2 has-text-centered">{data.frontmatter.stay_title}</h2>
-						<ul>
-							<li>NO ENTRANCE FEE & NO CORKAGE FEE for foods/drinks</li>
-							<li>RESERVATIONS for Picnic Huts needed except on Saturdays, Sundays and Holidays</li>
-						</ul>
 					</div>
 				</div>
         <div class="columns">
@@ -90,6 +87,13 @@ const hours_list = data.frontmatter.hours
 					</div>
 				</div>
 
+				<div class="has-text-centered py-5">
+					<ul>
+						<li>NO ENTRANCE FEE & NO CORKAGE FEE for foods/drinks</li>
+						<li>RESERVATIONS for Picnic Huts needed except on Saturdays, Sundays and Holidays</li>
+					</ul>
+				</div>
+
 				<Rates
 					title={data.frontmatter.rates_title}
 					picnic_area={data.frontmatter.picnic_area}
@@ -109,6 +113,7 @@ const hours_list = data.frontmatter.hours
 					</div>
 				</div>
 				<SwiperCarousel slides={data.frontmatter.features} client:idle />
+
 			</div>
 		</section>
 
