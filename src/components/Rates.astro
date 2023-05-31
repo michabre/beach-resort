@@ -1,16 +1,13 @@
 ---
-// Rates
-
-import * as data from '../data/rates.md'
-
-const picnic_area = data.frontmatter.picnic_area
-const tents = data.frontmatter.tents
-const rooms = data.frontmatter.rooms
-const rooms_content = data.frontmatter.rooms_content
-const hours = data.frontmatter.hours
-const content = data.compiledContent()
-
+// Rates Section
+const {title, picnic_area, tents, rooms} = Astro.props
 ---
+<div class="columns">
+  <div class="column">
+    <h2 class="is-size-2 has-text-centered">{title}</h2>
+  </div>
+</div>
+<div class="columns is-justify-content-center">
 <div class="column is-one-third">
     <h2 class="is-size-4">Picnic Area</h2>
     <table class="table is-fullwidth">
@@ -77,5 +74,11 @@ const content = data.compiledContent()
         ))}
       </tbody>
     </table>
+  </div>
+</div>
+</div>
+<div class="columns">
+  <div class="column">
+    <p class="has-text-centered">Prices may change without prior notice</p>
   </div>
 </div>
